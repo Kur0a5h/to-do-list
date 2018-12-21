@@ -23,7 +23,6 @@ class App extends Component{
         this.setState({
             list:[{...item, _id: randomString()},...list]
         })
-        console.log(list);
     }
 
     getListData(){

@@ -12,8 +12,6 @@ export default class AddItem extends Component{
     handleSaveItem=(e)=>{
         e.preventDefault();
 
-        console.log('New Item:',this.state);
-
         this.props.add(this.state);
         this.reset();
     }

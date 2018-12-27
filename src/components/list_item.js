@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default (props) =>{
     const{completeStatus}=props;
@@ -12,7 +13,7 @@ export default (props) =>{
         
         </div>
         <div className="col s9">
-        {props.title}
+        <Link to={`/item/${props.itemId}`} >{props.title}</Link>
         </div>
         
         <div className="col s2 center">

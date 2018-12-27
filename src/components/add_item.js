@@ -1,6 +1,7 @@
 
 
 import React, {Component} from 'react';
+import NavButton from './nav_button';
 
 
 export default class AddItem extends Component{
@@ -9,11 +10,14 @@ export default class AddItem extends Component{
         details:''
     }
 
-    handleSaveItem=(e)=>{
+    handleSaveItem=async(e)=>{
         e.preventDefault();
 
         this.props.add(this.state);
-        this.reset();
+
+        await this.props.history.push('/');
+
+        // this.reset();
     }
 
     reset=()=>{
@@ -27,7 +31,12 @@ export default class AddItem extends Component{
         const{title, details}=this.state;
     
         return (
-            <form onSubmit={this.handleSaveItem}>
+            <div>
+                <h1 className='center'>Add To-Do Item</h1>
+
+                <NavButton to='/' text='Back To List' color='orange'/>
+
+                <form onSubmit={this.handleSaveItem}>
                 <div className="row">
                     <div className='input-field col s8 offset-s2'>
                     <input onChange={(e)=>this.setState({title:e.target.value})} value={title} id='title' type="text" name='title' autoComplete='off'/>
@@ -48,7 +57,8 @@ export default class AddItem extends Component{
                         <button className='btn green waves-effect waves-light'>Add Item</button>
                     </div>
                 </div>
-            </form>
+                </form>
+            </div>
         );
     }
 }

@@ -7,10 +7,10 @@ import {Route} from 'react-router-dom';
 import React, {Component} from 'react';
 import List from './list';
 import AddItem from './add_item'
+import ViewItem from './view_item';
+import {BASE_URL, API_KEY} from '../config/api';
 
 
-const BASE_URL = 'http://api.reactprototypes.com/todos';
-const API_KEY = '?key=budholly';
 
 class App extends Component{
     state = {
@@ -71,6 +71,8 @@ class App extends Component{
                 <Route path='/add-item' render={(props)=>{
                     return <AddItem {...props} add={this.addItem}/>;
                 }}/>
+
+                <Route path='/item/:item_id' component={ViewItem}/>
             </div>
     );
     }

@@ -7,8 +7,10 @@ import NavButton from './nav_button'
 export default (props)=> {
     
     const listElements= props.toDos.map((item)=>{
+
     return (
         <ListItem 
+        itemId={item._id}
         complete={()=>props.complete(item._id)} 
         remove={()=>props.remove(item._id)} 
         key={item._id}
